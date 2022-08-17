@@ -22,12 +22,12 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        const currencyElement = document.querySelector(".js-currencySellect");
+        const currencyElement = document.querySelector(".js-currencySelect");
         const exchangeRateElement = document.querySelector(".js-exchangeRate");
         const currency = currencyElement.value;
 
 
-        formElement.addEventListener("input", displayCurrentRate(currency, exchangeRateElement));
+        formElement.addEventListener("input", (event) => { displayCurrentRate(event.target.value, exchangeRateElement); });
 
         formElement.addEventListener("submit", (event) => {
             event.preventDefault();
