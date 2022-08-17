@@ -24,7 +24,7 @@
         return amountPln / exchangeRate;
     };
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = (exchangeRateElement) => {
         event.preventDefault();
 
 
@@ -49,7 +49,9 @@
             displayCurrentRate(event.target.value, exchangeRateElement);
         });
 
-        formElement.addEventListener("submit", onFormSubmit);
+        formElement.addEventListener("submit", (event) => {
+            onFormSubmit(event.target.value, exchangeRateElement);
+        });
 
         formElement.addEventListener("reset", (event) => {
             resultElement.innerHTML = `Za x PLN otrzymasz`;
