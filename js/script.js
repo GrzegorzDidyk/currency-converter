@@ -20,6 +20,10 @@
         }
     };
 
+    const calculateResult = (amountPln, exchangeRate) => {
+        return amountPln / exchangeRate;
+    };
+
     const init = () => {
         const formElement = document.querySelector(".js-form");
         const currencyElement = document.querySelector(".js-currencySelect");
@@ -37,7 +41,7 @@
             const resultElement = document.querySelector(".js-result");
             const amountPln = amountPlnElement.value;
             const exchangeRate = exchangeRateElement.value;
-            let result = amountPln / exchangeRate;
+            const result = calculateResult(amountPln, exchangeRate) 
 
             resultElement.innerHTML = `Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`;
         });
