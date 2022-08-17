@@ -30,18 +30,19 @@
 
         const amountPlnElement = document.querySelector(".js-amountPln");
         const resultElement = document.querySelector(".js-result");
+        const currencyElement = document.querySelector(".js-currencySelect");
         const amountPln = amountPlnElement.value;
         const exchangeRate = exchangeRateElement.value;
-        const result = calculateResult(amountPln, exchangeRate)
-
+        const result = calculateResult(amountPln, exchangeRate);
+        const currency = currencyElement.value;
         resultElement.innerHTML = `Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`;
     };
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        const currencyElement = document.querySelector(".js-currencySelect");
+        
         const exchangeRateElement = document.querySelector(".js-exchangeRate");
-        const currency = currencyElement.value;
+       
 
 
         formElement.addEventListener("input", (event) => {
