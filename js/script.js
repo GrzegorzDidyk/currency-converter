@@ -24,7 +24,7 @@
         return amountPln / exchangeRate;
     };
 
-    const onFormSubmit = (exchangeRateElement) => {
+    const onFormSubmit = (event, exchangeRateElement) => {
         event.preventDefault();
 
 
@@ -40,24 +40,21 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        
         const exchangeRateElement = document.querySelector(".js-exchangeRate");
-       
-
 
         formElement.addEventListener("input", (event) => {
             displayCurrentRate(event.target.value, exchangeRateElement);
         });
 
         formElement.addEventListener("submit", (event) => {
-            onFormSubmit(event.target.value, exchangeRateElement);
+            onFormSubmit(event, exchangeRateElement);
         });
 
         formElement.addEventListener("reset", (event) => {
             resultElement.innerHTML = `Za x PLN otrzymasz`;
         });
     };
-    
+
     init();
 
 }
