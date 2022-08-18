@@ -1,5 +1,4 @@
 {
-
     const displayCurrentRate = (currency, exchangeRateElement) => {
         const euroRate = 4.7241;
         const dolarRate = 4.2193;
@@ -24,18 +23,21 @@
         return amountPln / exchangeRate;
     };
 
+    const updateResultText = (amountPln, result, currency) => {
+        const resultElement = document.querySelector(".js-result");
+        resultElement.innerHTML = `Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`;
+    };
+
     const onFormSubmit = (event, exchangeRateElement) => {
         event.preventDefault();
-
-
         const amountPlnElement = document.querySelector(".js-amountPln");
-        const resultElement = document.querySelector(".js-result");
         const currencyElement = document.querySelector(".js-currencySelect");
         const amountPln = amountPlnElement.value;
         const exchangeRate = exchangeRateElement.value;
         const result = calculateResult(amountPln, exchangeRate);
         const currency = currencyElement.value;
-        resultElement.innerHTML = `Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`;
+
+        updateResultText(amountPln, result, currency);
     };
 
     const init = () => {
@@ -54,7 +56,5 @@
             resultElement.innerHTML = `Za x PLN otrzymasz`;
         });
     };
-
     init();
-
 }
