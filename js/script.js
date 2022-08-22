@@ -23,9 +23,9 @@
         return amountPln / exchangeRate;
     };
 
-    const updateResultText = (amountPln, result, currency) => {
+    const updateResultText = (text) => {
         const resultElement = document.querySelector(".js-result");
-        resultElement.innerHTML = `Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`;
+        resultElement.innerHTML = text;
     };
 
     const onFormSubmit = (event, exchangeRateElement) => {
@@ -37,7 +37,7 @@
         const result = calculateResult(amountPln, exchangeRate);
         const currency = currencyElement.value;
 
-        updateResultText(amountPln, result, currency);
+        updateResultText(`Za ${amountPln} PLN otrzymasz <strong> ${result.toFixed(2)} ${currency} </strong>`);
     };
 
     const init = () => {
@@ -52,8 +52,8 @@
             onFormSubmit(event, exchangeRateElement);
         });
 
-        formElement.addEventListener("reset", (event) => {
-            resultElement.innerHTML = `Za x PLN otrzymasz`;
+        formElement.addEventListener("reset", () => {
+            updateResultText("Za x PLN otrzymasz");
         });
     };
     init();
