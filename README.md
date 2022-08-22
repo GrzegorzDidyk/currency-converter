@@ -7,6 +7,8 @@ A simple currency calculator where I practiced creating forms and using function
 
 https://grzegorzdidyk.github.io/currency-converter/
 
+![currency-converter](images/animation_currency-converter.gif)
+
 ### How to use:
 
 1. Enter amount in PLN
