@@ -1,8 +1,8 @@
 {
     const displayCurrentRate = (currency, exchangeRateElement) => {
-        const euroRate = 4.7241;
-        const dolarRate = 4.2193;
-        const funtRate = 5.6593;
+        const euroRate = 4.7493;
+        const dolarRate = 4.7427;
+        const funtRate = 5.6022;
         switch (currency) {
             case "EUR":
                 exchangeRateElement.value = euroRate;
@@ -56,5 +56,6 @@
             updateResultText("Za x PLN otrzymasz");
         });
     };
+    
     init();
 }
